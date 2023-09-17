@@ -36,8 +36,8 @@ public class Account {
         this.isActive = true;
     }
 
-    public Account getAccountInfo() {
-        return this;
+    public void getAccountInfo() {
+        System.out.printf("일반계좌 정보 : %s", this);
     }
 
     public BigDecimal deposit(final BigDecimal balance) {
@@ -70,13 +70,9 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "accountType=" + accountType +
-                ", accountNo='" + accountNo + '\'' +
-                ", owner='" + owner + '\'' +
-                ", balance=" + balance +
-                ", isActive=" + isActive +
-                '}';
+        return String.format(
+                "계좌종류 : %s, 계좌번호: %s, 소유자: %s, 보유금액: %s, 활성화 여부: %s",
+                this.accountType,  this.accountNo, this.owner, this.balance, this.isActive);
     }
 
     // TODO : HashCode, Equals Override

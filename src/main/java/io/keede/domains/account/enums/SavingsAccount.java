@@ -27,15 +27,15 @@ public final class SavingsAccount extends Account {
     }
 
     @Override
-    public Account getAccountInfo() {
-        return this;
+    public void getAccountInfo() {
+        System.out.printf("적금계좌 정보 : %s", this);
     }
 
     @Override
     public String toString() {
-        return "SavingsAccount{" +
-                "목표금액=" + 목표금액 +
-                '}';
+        return String.format(
+                "계좌종류 : %s, 목표금액: %s, 계좌번호: %s, 소유자: %s, 보유금액: %s, 활성화 여부: %s",
+                this.getAccountType(), this.목표금액,  this.getAccountNo(), this.getOwner(), this.보유금액(), this.isActive());
     }
 
     // TODO : HashCode, Equals Override
