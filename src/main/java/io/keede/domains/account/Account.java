@@ -5,9 +5,9 @@ import io.keede.domains.account.enums.AccountType;
 import java.math.BigDecimal;
 
 /**
-* @author keede
-* Created on 2023/09/17
-*/
+ * @author keede
+ * Created on 2023/09/17
+ */
 public class Account {
 
     /**
@@ -21,19 +21,31 @@ public class Account {
     private AccountType accountType;
     private String accountNo;
     private String owner;
-    private Balance balance;
+    private BigDecimal balance;
     private boolean isActive;
+
+    public Account(
+            final AccountType accountType,
+            final String accountNo,
+            final String owner
+    ) {
+        this.accountType = accountType;
+        this.accountNo = accountNo;
+        this.owner = owner;
+        this.balance = BigDecimal.ZERO;
+        this.isActive = true;
+    }
 
     public Account getAccountInfo() {
         return this;
     }
 
-    public void deposit() {
-
+    public BigDecimal deposit(final BigDecimal balance) {
+        return this.balance.add(balance);
     }
 
-    public void withdraw() {
-
+    public BigDecimal withdraw(final BigDecimal balance) {
+        return this.balance.subtract(balance);
     }
 
     public AccountType getAccountType() {
@@ -48,12 +60,12 @@ public class Account {
         return this.owner;
     }
 
-    public Balance getBalance() {
-        return this.balance;
-    }
-
     public boolean isActive() {
         return this.isActive;
+    }
+
+    public BigDecimal 보유금액() {
+        return this.balance;
     }
 
     @Override
