@@ -1,5 +1,9 @@
 package io.keede.domains.account;
 
+import io.keede.domains.account.enums.AccountType;
+
+import java.math.BigDecimal;
+
 /**
 * @author keede
 * Created on 2023/09/17
@@ -14,7 +18,54 @@ public class Account {
      * 적금 계좌 클래스는 이 메서드를 재정의 하여 목표 금액 정보도 보여주도록 합니다.
      * 뱅크 클래스에서 호출할 출금, 입금 기본 메서드를 생성합니다.
      */
+    private AccountType accountType;
+    private String accountNo;
+    private String owner;
+    private Balance balance;
+    private boolean isActive;
 
+    public Account getAccountInfo() {
+        return this;
+    }
 
+    public void deposit() {
 
+    }
+
+    public void withdraw() {
+
+    }
+
+    public AccountType getAccountType() {
+        return this.accountType;
+    }
+
+    public String getAccountNo() {
+        return this.accountNo;
+    }
+
+    public String getOwner() {
+        return this.owner;
+    }
+
+    public Balance getBalance() {
+        return this.balance;
+    }
+
+    public boolean isActive() {
+        return this.isActive;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountType=" + accountType +
+                ", accountNo='" + accountNo + '\'' +
+                ", owner='" + owner + '\'' +
+                ", balance=" + balance +
+                ", isActive=" + isActive +
+                '}';
+    }
+
+    // TODO : HashCode, Equals Override
 }
