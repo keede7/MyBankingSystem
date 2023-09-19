@@ -1,6 +1,7 @@
-package io.keede.domains.account.enums;
+package io.keede.domains.account;
 
 import io.keede.domains.account.Account;
+import io.keede.domains.account.enums.AccountType;
 
 import java.math.BigDecimal;
 
