@@ -10,4 +10,15 @@ public class Bank {
      * 적금 계좌는 적금 계좌는 잔액이 목표 금액(%s원) 이상이어야 출금 가능하도록 상속받은 출금 메서드를 조금 다르게 구현해줍니다.
      */
 
+    // 계좌 생성
+    public void createAccount() {}
+
+    // 입금
+    public void deposit() {}
+    // 출금
+
+    public void withdraw() {}
+
+    // 송금
+    public void transfer() {}
 }
