@@ -37,22 +37,27 @@ public class Account {
         this.isActive = true;
     }
 
-    public void getAccountInfo() {
-        System.out.printf("일반계좌 정보 : %s", this);
-    }
-
     public BigDecimal deposit(final BigDecimal balance) {
         this.balance = this.balance.add(balance);
         return this.balance;
     }
 
     public BigDecimal withdraw(final BigDecimal balance) {
-        if(this.balance.compareTo(balance) < 0) {
-            throw new NotEnoughBalanceException();
-        }
+        checkEnableToWithdrawBalance(balance);
 
         this.balance = this.balance.subtract(balance);
         return this.balance;
+    }
+
+    protected void checkEnableToWithdrawBalance(final BigDecimal balance) {
+        System.out.println("현재 잔액 = " + balance);
+        if(this.balance.compareTo(balance) < 0) {
+            throw new NotEnoughBalanceException();
+        }
+    }
+
+    public void getAccountInfo() {
+        System.out.printf("일반계좌 정보 : %s", this);
     }
 
     public AccountType getAccountType() {
@@ -82,5 +87,4 @@ public class Account {
                 this.accountType,  this.accountNo, this.owner, this.balance, this.isActive);
     }
 
-    // TODO : HashCode, Equals Override
 }
