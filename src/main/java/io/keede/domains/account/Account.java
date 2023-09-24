@@ -1,6 +1,7 @@
 package io.keede.domains.account;
 
 import io.keede.domains.account.enums.AccountType;
+import io.keede.domains.account.exception.NotEnoughBalanceException;
 
 import java.math.BigDecimal;
 
@@ -45,6 +46,10 @@ public class Account {
     }
 
     public BigDecimal withdraw(final BigDecimal balance) {
+        if(this.balance.compareTo(balance) < 0) {
+            throw new NotEnoughBalanceException();
+        }
+
         return this.balance.subtract(balance);
     }
 
