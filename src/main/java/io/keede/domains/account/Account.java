@@ -19,9 +19,9 @@ public class Account {
      * 적금 계좌 클래스는 이 메서드를 재정의 하여 목표 금액 정보도 보여주도록 합니다.
      * 뱅크 클래스에서 호출할 출금, 입금 기본 메서드를 생성합니다.
      */
-    private AccountType accountType;
-    private String accountNo;
-    private String owner;
+    private final AccountType accountType;
+    private final String accountNo;
+    private final String owner;
     private BigDecimal balance;
     private boolean isActive;
 
@@ -42,7 +42,8 @@ public class Account {
     }
 
     public BigDecimal deposit(final BigDecimal balance) {
-        return this.balance.add(balance);
+        this.balance = this.balance.add(balance);
+        return this.balance;
     }
 
     public BigDecimal withdraw(final BigDecimal balance) {
@@ -50,7 +51,8 @@ public class Account {
             throw new NotEnoughBalanceException();
         }
 
-        return this.balance.subtract(balance);
+        this.balance = this.balance.subtract(balance);
+        return this.balance;
     }
 
     public AccountType getAccountType() {
@@ -69,7 +71,7 @@ public class Account {
         return this.isActive;
     }
 
-    public BigDecimal 보유금액() {
+    public BigDecimal getBalance() {
         return this.balance;
     }
 

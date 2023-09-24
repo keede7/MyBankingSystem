@@ -1,6 +1,5 @@
 package io.keede.domains.account;
 
-import io.keede.domains.account.Account;
 import io.keede.domains.account.enums.AccountType;
 
 import java.math.BigDecimal;
@@ -11,20 +10,20 @@ import java.math.BigDecimal;
 */
 public final class SavingsAccount extends Account {
 
-    private BigDecimal 목표금액;
+    private BigDecimal goalBalance;
 
     public SavingsAccount(
             final AccountType accountType,
             final String accountNo,
             final String owner,
-            final BigDecimal 목표금액
+            final BigDecimal goalBalance
     ) {
         super(accountType, accountNo, owner);
-        this.목표금액 = 목표금액;
+        this.goalBalance = goalBalance;
     }
 
-    public BigDecimal get목표금액() {
-        return this.목표금액;
+    public BigDecimal getGoalBalance() {
+        return this.goalBalance;
     }
 
     @Override
@@ -36,7 +35,7 @@ public final class SavingsAccount extends Account {
     public String toString() {
         return String.format(
                 "계좌종류 : %s, 목표금액: %s, 계좌번호: %s, 소유자: %s, 보유금액: %s, 활성화 여부: %s",
-                this.getAccountType(), this.목표금액,  this.getAccountNo(), this.getOwner(), this.보유금액(), this.isActive());
+                this.getAccountType(), this.goalBalance,  this.getAccountNo(), this.getOwner(), this.getBalance(), this.isActive());
     }
 
     // TODO : HashCode, Equals Override
